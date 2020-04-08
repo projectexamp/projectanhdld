@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+</head>
+<body>
+
+<table border="1">
+
+
+    <tr th:each="role : ${roles}">
+        <td th:text="${role.roleName}"></td>
+        <td th:text="${role.roleCode}"></td>
+        <td th:text="${role.description}"></td>
+        <td>
+        		<div th:switch="${role.status}"> 
+					<p th:case=0>Actived</p>
+					<p th:case=1>Unactived</p>
+				</div>
+        </td>
+        <td>
+			<form th:action="@{/roleManagement/updateStatus}" method="get">
+				<input type="hidden" name="roleId" th:value="${role.id}" />
+				<div th:switch="${role.status}"> 
+					<input th:case=0 type="hidden" th:value=1 name="status"/>	
+					<input th:case=1 type="hidden" th:value=0 name="status"/>	
+				</div>
+				<div th:switch="${role.status}"> 
+					<input th:case=0 type="submit" value="Disable">	
+					<input th:case=1 type="submit" value="Enable">	
+				</div>
+				
+
+			</form>        
+        </td>
+        </tr>
+
+</table>
+</body>
+</html>
