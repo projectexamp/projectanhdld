@@ -35,8 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             .antMatchers("/**/*.js", "/**/*.css","/", "/login", "/logout").permitAll()             
                 .antMatchers("/userManagement/**").hasRole("ADMIN")
-                .antMatchers("/userSelfManagement/**").hasRole("MEMBER")
-                .anyRequest().authenticated()
+                .antMatchers("/userSelfManagement/**").hasRole("MEMBER")                
                 .and()
             .formLogin()
                 .loginPage("/login")
@@ -48,7 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .exceptionHandling()
                 .accessDeniedPage("/403");
         http.sessionManagement().maximumSessions(1).expiredUrl("/login");
-
+        http.authorizeRequests().antMatchers("/functionManagement/**").hasRole("MEMBER");
+        http.authorizeRequests().antMatchers("/roleManagement/**").hasRole("ADMIN");
+        http.authorizeRequests().anyRequest().authenticated();
     }
 
 }
