@@ -24,7 +24,7 @@ public class FunctionController {
 	
 	@RequestMapping(value = "/searchFunction", method = RequestMethod.GET)
 	public String searchFormFunction() {
-		return "search-function";
+		return "function/search-function";
 	}
 	
 	
@@ -41,7 +41,7 @@ public class FunctionController {
 		}
 		modelMap.addAttribute("report", report);  
 		modelMap.addAttribute("function", function);  
-		return "view-function";
+		return "function/view-function";
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
@@ -49,20 +49,20 @@ public class FunctionController {
 		List<Functions> functions= new ArrayList<Functions>();
 		functions=functionService.search(functionName);
 		modelMap.addAttribute("functions", functions);
-		return "list-function";		
+		return "function/list-function";		
 	}
 	
 	@RequestMapping(value = "/addFunction", method = RequestMethod.GET)
 	public String addFunction(ModelMap modelMap) {
 		modelMap.addAttribute("function", new Functions());
-		return "add-function";
+		return "function/add-function";
 	}
 
 	@RequestMapping(value = "/saveFunction", method = RequestMethod.POST)
 	public String saveFunction(@ModelAttribute("function") Functions function, ModelMap modelMap) {
 		functionService.save(function);
 		modelMap.addAttribute("function", function);  
-		return "view-function";
+		return "function/view-function";
 	}
 	
 	@RequestMapping(value = "/viewFunction/{FunctionId}", method = RequestMethod.GET)
@@ -70,7 +70,7 @@ public class FunctionController {
 		Functions function=new Functions();
 		function=functionService.getOne(FunctionId);
 		modelMap.addAttribute("function", function);  
-		return "view-function";
+		return "function/view-function";
 	}
 	
 	@RequestMapping(value = "/editFunction/{FunctionId}", method = RequestMethod.GET)
@@ -79,6 +79,6 @@ public class FunctionController {
 		Functions function=new Functions();
 		function=functionService.getOne(FunctionId);
 		modelMap.addAttribute("function", function);  
-		return "edit-function";
+		return "function/edit-function";
 	}
 }

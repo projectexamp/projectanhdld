@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headFragment :: headerFragment (pageTitle='app demo')">
+<meta charset="UTF-8">
+<title>Spring Boot + Thymeleaf</title>
+</head>
+<body>
+  <h2>Add Role</h2>
+  <form th:action="@{/roleManagement/saveRole}" th:object="${role}" method="post">
+    <table>
+      <tr>
+        <td>Role Name*</td>
+        <td><input type="text" th:field="*{roleName}" /></td>
+      </tr>
+      <tr>
+        <td>Role Code*</td>
+        <td><input type="text" th:field="*{roleCode}" /></td>
+      </tr>
+   
+      <tr>
+        <td>Description</td>
+        <td><textarea th:field="*{description}"/></textarea></td>
+      </tr>
+      
+      <tr>
+        <td colspan="2"><input type="submit" value="Submit" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

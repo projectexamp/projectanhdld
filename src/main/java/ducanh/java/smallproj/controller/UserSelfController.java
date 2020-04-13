@@ -25,7 +25,7 @@ public class UserSelfController {
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
 	public String addUser(ModelMap modelMap) {
 		modelMap.addAttribute("user", new Users());
-		return "add-user";
+		return "user/add-user";
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
@@ -34,7 +34,7 @@ public class UserSelfController {
 		user.setPassword(passwordEncoder.encode(rawPassword));
 		userService.save(user);
 		modelMap.addAttribute("user", user);  
-		return "view-user";
+		return "user/view-user";
 	}
 	
 	@RequestMapping(value = "/viewUser/{userId}", method = RequestMethod.GET)
@@ -42,7 +42,7 @@ public class UserSelfController {
 		Users user=new Users();
 		user=userService.getOne(userId);
 		modelMap.addAttribute("user", user);  
-		return "view-user";
+		return "user/view-user";
 	}
 	
 	@RequestMapping(value = "/editUser/{userId}", method = RequestMethod.GET)
@@ -51,7 +51,7 @@ public class UserSelfController {
 		Users user=new Users();
 		user=userService.getOne(userId);
 		modelMap.addAttribute("user", user);  
-		return "edit-user";
+		return "user/edit-user";
 	}
 	
 

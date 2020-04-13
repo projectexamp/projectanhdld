@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="fragments/headFragment :: headerFragment (pageTitle='app demo')">
+    <title></title>
+</head>
+<body>
+
+
+			<form th:action="@{/userManagement/search}" method="post">
+				<input type="text" name="userName" />
+				<input type="submit" value="Submit">
+			</form>        
+
+</body>
+</html>

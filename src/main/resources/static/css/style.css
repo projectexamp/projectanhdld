@@ -1,0 +1,7 @@
+#menu li {
+  float:left;
+  margin-right:30px;
+}
+.clearfix{
+	clear:both;
+}

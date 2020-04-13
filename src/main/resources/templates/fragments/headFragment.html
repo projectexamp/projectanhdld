@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerFragment (pageTitle)">
+    <title th:text="${pageTitle}">Template title </title>
+		    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
+		<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>  
+<ul th:fragment="menu" id="menu" class="clearfix">  
+  <li><a th:href="@{/}" th:text="Home"></a></li>
+  <li><a th:href="@{/logout}" th:text="Logout"></a></li>
+</ul>  
+</body> 
+</html>

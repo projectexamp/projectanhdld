@@ -22,7 +22,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
 	public String searchFormUser() {
-		return "search-user";
+		return "user/search-user";
 	}
 	
 	
@@ -39,7 +39,7 @@ public class UserController {
 		}
 		modelMap.addAttribute("report", report);  
 		modelMap.addAttribute("user", user);  
-		return "view-user";
+		return "user/view-user";
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
@@ -47,6 +47,6 @@ public class UserController {
 		List<Users> users= new ArrayList<Users>();
 		users=userService.search(userName);
 		modelMap.addAttribute("users", users);
-		return "list-user";
+		return "user/list-user";
 	}
 }

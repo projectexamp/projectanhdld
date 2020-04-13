@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headFragment :: headerFragment (pageTitle='app demo')">
+<meta charset="UTF-8">
+<title>Spring MVC + Thymeleaf</title>
+</head>
+<body>
+  <h2>USER</h2>
+  <p th:text="${report}" />
+  <table>
+    <tr>
+      <td>UserName:</td>
+      <td><p th:text="${user.userName}" /></td>
+    </tr>
+    <tr>
+      <td>FullName:</td>
+      <td><p th:text="${user.fullName}" /></td>
+    </tr>    
+    <tr>
+      <td>Email:</td>
+      <td><p th:text="${user.email}" /></td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+    	<div th:switch="${user.gender}"> 
+			<p th:case=0>Male</p>
+			<p th:case=1>Female</p>
+		</div>
+      </td>
+    </tr> 
+    <tr>
+      <td>Status:</td>
+      <td>
+       		<div th:switch="${user.status}"> 
+				<p th:case=0>Actived</p>
+				<p th:case=1>Unactived</p>
+			</div>
+      </td>
+    </tr>      
+  </table>
+</body>
+</html>

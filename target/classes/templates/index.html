@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/headFragment :: headerFragment (pageTitle='app demo')">
     <title></title>
 </head>
 <body>
+<ul th:replace="fragments/headFragment :: menu">
 
+</ul>
 <h2>Heloooooo</h2>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class RoleController {
 	
 	@RequestMapping(value = "/searchRole", method = RequestMethod.GET)
 	public String searchFormRole() {
-		return "search-role";
+		return "role/search-role";
 	}
 	
 	
@@ -41,7 +41,7 @@ public class RoleController {
 		}
 		modelMap.addAttribute("report", report);  
 		modelMap.addAttribute("role", role);  
-		return "view-role";
+		return "role/view-role";
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
@@ -49,20 +49,20 @@ public class RoleController {
 		List<Role> roles= new ArrayList<Role>();
 		roles=roleService.search(roleName);
 		modelMap.addAttribute("roles", roles);
-		return "list-role";		
+		return "role/list-role";		
 	}
 	
 	@RequestMapping(value = "/addRole", method = RequestMethod.GET)
 	public String addRole(ModelMap modelMap) {
 		modelMap.addAttribute("role", new Role());
-		return "add-role";
+		return "role/add-role";
 	}
 
 	@RequestMapping(value = "/saveRole", method = RequestMethod.POST)
 	public String saveRole(@ModelAttribute("role") Role role, ModelMap modelMap) {
 		roleService.save(role);
 		modelMap.addAttribute("role", role);  
-		return "view-role";
+		return "role/view-role";
 	}
 	
 	@RequestMapping(value = "/viewRole/{roleId}", method = RequestMethod.GET)
@@ -70,7 +70,7 @@ public class RoleController {
 		Role role=new Role();
 		role=roleService.getOne(roleId);
 		modelMap.addAttribute("role", role);  
-		return "view-role";
+		return "role/view-role";
 	}
 	
 	@RequestMapping(value = "/editRole/{roleId}", method = RequestMethod.GET)
@@ -79,6 +79,6 @@ public class RoleController {
 		Role role=new Role();
 		role=roleService.getOne(roleId);
 		modelMap.addAttribute("role", role);  
-		return "edit-role";
+		return "role/edit-role";
 	}
 }

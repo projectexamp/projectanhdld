@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headFragment :: headerFragment (pageTitle='app demo')">
+<meta charset="UTF-8">
+<title>Spring + Thymeleaf</title>
+</head>
+<body>
+  <h2>Fuction</h2>
+  <p th:text="${report}" />
+  <table>
+    <tr>
+      <td>Function Name:</td>
+      <td><p th:text="${function.functionName}" /></td>
+    </tr>
+    <tr>
+      <td>Function Code:</td>
+      <td><p th:text="${function.functionCode}" /></td>
+    </tr>    
+    <tr>
+      <td>Description:</td>
+      <td><p th:text="${function.description}" /></td>
+    </tr>
+        <tr>
+      <td>Url:</td>
+      <td><p th:text="${function.functionUrl}" /></td>
+    </tr>
+    
+    <tr>
+      <td>Status:</td>
+      <td>
+       		<div th:switch="${function.status}"> 
+				<p th:case=0>Actived</p>
+				<p th:case=1>Unactived</p>
+			</div>
+      </td>
+    </tr>
+     
+  </table>
+</body>
+</html>

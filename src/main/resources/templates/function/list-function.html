@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="fragments/headFragment :: headerFragment (pageTitle='app demo')">
+    <title></title>
+</head>
+<body>
+
+<table border="1">
+
+
+    <tr th:each="function : ${functions}">
+        <td th:text="${function.functionName}"></td>
+        <td th:text="${function.functionCode}"></td>
+        <td th:text="${function.functionUrl}"></td>
+        <td th:text="${function.description}"></td>
+        <td>
+        		<div th:switch="${function.status}"> 
+					<p th:case=0>Actived</p>
+					<p th:case=1>Unactived</p>
+				</div>
+        </td>
+        <td>
+			<form th:action="@{/functionManagement/updateStatus}" method="get">
+				<input type="hidden" name="functionId" th:value="${function.id}" />
+				<div th:switch="${function.status}"> 
+					<input th:case=0 type="hidden" th:value=1 name="status"/>	
+					<input th:case=1 type="hidden" th:value=0 name="status"/>	
+				</div>
+				<div th:switch="${function.status}"> 
+					<input th:case=0 type="submit" value="Disable">	
+					<input th:case=1 type="submit" value="Enable">	
+				</div>
+				
+
+			</form>        
+        </td>
+        </tr>
+
+</table>
+</body>
+</html>

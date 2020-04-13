@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head  th:replace="fragments/headFragment :: headerFragment (pageTitle='Login Page')">
 <meta charset="UTF-8" />
 <title>Login Page</title>
-<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
     <div class="main-content">
